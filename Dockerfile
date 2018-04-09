@@ -12,6 +12,8 @@ COPY alma.php /docroot/flowpaper/php/alma.php
 COPY config.ini.nix.php /docroot/flowpaper/php/config/config.ini.nix.php
 
 # Allow environment variables to be used
-RUN sed -e 's/;clear_env = no/clear_env = no/' -i /etc/php7/php-fpm.d/www.conf
+RUN echo $'env[ALMA_API_KEY] = $ALMA_API_KEY \n\
+env[AWS_ACCESS_KEY_ID] = $AWS_ACCESS_KEY_ID \n\
+env[AWS_SECRET_ACCESS_KEY] = $AWS_SECRET_ACCESS_KEY' >> /etc/php7/php-fpm.d/www.conf
 
 USER nonroot

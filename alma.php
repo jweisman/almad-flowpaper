@@ -29,7 +29,12 @@ $swfpath = $configManager->getConfig('path.swf');
 $bucket = 'na-st01.ext.exlibrisgroup.com';
 $rep_id = $_GET["rep_id"];
 
-$bib = CallAPI('/bibs?representation_id='.$rep_id);
+if ($rep_id == '') {
+    print "Representation ID required.";
+    exit;
+}
+
+$bib = CallAPI('/bibs?view=brief&representation_id='.$rep_id);
 $mms_id = $bib['bib'][0]['mms_id']; 
 $files = CallAPI('/bibs/'.$mms_id.'/representations/'.$rep_id.'/files');
 $keyname = $files['representation_file'][0]['path'];

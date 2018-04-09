@@ -1,0 +1,2 @@
+# Upstream image ttskch/nginx-php-fpm-heroku includes an ONBUILD COPY /, so exclude Dockerfile to enable cache
+Dockerfile
