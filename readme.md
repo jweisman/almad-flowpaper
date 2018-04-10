@@ -2,6 +2,8 @@
 
 A Docker image which can be used to deploy the [FlowPaper viewer](https://flowpaper.com) as an [Alma Digital viewer](https://www.exlibrisgroup.com/Alma). 
 
+For more information, see this [blog post](https://developers.exlibrisgroup.com/blog/Implementing-a-Custom-Viewer-for-PDF-Files).
+
 ## Deployment
 
 This Docker image is optimized for deplyment to [Heroku](http://heroku.com/) and uses this PHP + nginx [base image](https://hub.docker.com/r/ttskch/nginx-php-fpm-heroku/). To deploy this viewer to Heroku, do the following:
@@ -34,5 +36,3 @@ docker run -d --rm -p 8080:5000 -e PORT=5000 -e ALMA_API_KEY={API Key} -e AWS_AC
 ```
 
 The access the viewer using http://localhost:8080/flowpaper/php/alma.php?rep_id={representation_id}
-
-For more information, see this [blog post]().
