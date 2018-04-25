@@ -1,6 +1,6 @@
 <?php
 
-require '/docroot/libs/aws/aws-autoloader.php';
+require $_ENV["DOCROOT"].'/libs/aws/aws-autoloader.php';
 
 function CallAPI($url)
 {
