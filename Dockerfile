@@ -22,16 +22,16 @@ RUN wget https://storage.googleapis.com/google-code-archive-downloads/v2/code.go
 
 WORKDIR /tmp
 
-RUN wget http://docs.aws.amazon.com/aws-sdk-php/v3/download/aws.zip
-RUN mkdir $DOCROOT/libs $DOCROOT/libs/aws \
+RUN wget http://docs.aws.amazon.com/aws-sdk-php/v3/download/aws.zip \
+	&& mkdir $DOCROOT/libs $DOCROOT/libs/aws \
 	&& unzip aws.zip -d $DOCROOT/libs/aws
 
-RUN wget https://flowpaper.com/annotations_builds/FlowPaper_Annotations_Trial.zip
-RUN mkdir $DOCROOT/flowpaper \
+RUN wget https://flowpaper.com/annotations_builds/FlowPaper_Annotations_Trial.zip \
+	&& mkdir $DOCROOT/flowpaper \
 	&& unzip FlowPaper_Annotations_Trial.zip -d $DOCROOT/flowpaper
 
-COPY alma.php $DOCROOT/flowpaper/php/alma.php
-COPY config.ini.nix.php $DOCROOT/flowpaper/php/config/config.ini.nix.php
+COPY alma.php $DOCROOT/flowpaper/php/
+COPY config.ini.nix.php $DOCROOT/flowpaper/php/config/
 
 # Allow environment variables to be used
 RUN echo $'env[ALMA_API_KEY] = $ALMA_API_KEY \n\
