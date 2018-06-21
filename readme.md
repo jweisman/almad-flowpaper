@@ -26,13 +26,13 @@ The following environment variables are required:
 To modify this repository locally, you can `git clone https://github.com/jweisman/almad-flowpaper.git` to a local directory. To build the image use
 
 ```
-docker build -t flowpaper .
+docker build -t almad-flowpaper .
 ```
 
 To run the container locally, use: 
 
 ```
-docker run -d --rm -p 8080:5000 -e PORT=5000 -e ALMA_API_KEY={API Key} -e AWS_ACCESS_KEY_ID={AWS Key} -e AWS_SECRET_ACCESS_KEY={AWS Secret} --name flowpaper flowpaper
+docker run -d --rm -p 8080:5000 -e PORT=5000 -e ALMA_API_KEY={API Key} -e AWS_ACCESS_KEY_ID={AWS Key} -e AWS_SECRET_ACCESS_KEY={AWS Secret} --name flowpaper almad-flowpaper
 ```
 
 The access the viewer using http://localhost:8080/flowpaper/php/alma.php?rep_id={representation_id}
